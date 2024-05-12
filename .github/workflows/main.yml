@@ -5,8 +5,18 @@ on:
     branches:
      -main
   workflow_dispatch:
+
 jobs:
   MyFirstJob:
     runs-on: ubuntu-latest
     steps:
       - run: echo "Hello world1"
+      
+      - name: Checkout
+        uses: actions/checkout@v4.1.5
+
+      - name: List files in repository
+        run: |
+          echo "The repository ${{ github.repository }} contains the following files:"
+          tree
+    
